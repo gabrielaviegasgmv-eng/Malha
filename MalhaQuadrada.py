@@ -1,5 +1,6 @@
 import numpy as np 
 import matplotlib.pyplot as plt
+
 class Malha:
     def __init__(self, base, altura, elemAltura, elemBase):
         self.base = base
@@ -20,7 +21,7 @@ class Malha:
         self.nos = (self.nx + 1) * (self.ny + 1)
         self.elem = (self.nx) * (self.ny)
 
-# Talvez:
+# Identificando:
 
         self.coordenadas_nos = None
         self.conectividade = None
@@ -75,6 +76,8 @@ class Malha:
             
         return self.conectividade
 
+# Gráfico para mostrar a malha
+
     def plotar_malha_completa(self):
         fig, ax = plt.subplots(figsize=(6,6))
         
@@ -98,12 +101,10 @@ class Malha:
         plt.grid(True, linestyle='--', alpha=0.5)
         plt.show()
 
+# O elemento só será colorido se todos os nós satisfazerem a condição 
+
     def plotar_elementos_regiao(self, condicao, titulo):
-        """
-        Função auxiliar para plotar elementos que satisfazem uma determinada
-        condição (expressa por uma função que recebe x e y e retorna True/False).
-        O elemento só será colorido se TODOS os seus nós satisfizerem a condição.
-        """
+        
         fig, ax = plt.subplots(figsize=(6,6))
         
         # Desenha a malha base (fundo)
